@@ -1,0 +1,15 @@
+/Users/noahsehman/Desktop/For-Now/Hope/bin/Debug/net6.0/Hope
+/Users/noahsehman/Desktop/For-Now/Hope/bin/Debug/net6.0/Hope.deps.json
+/Users/noahsehman/Desktop/For-Now/Hope/bin/Debug/net6.0/Hope.runtimeconfig.json
+/Users/noahsehman/Desktop/For-Now/Hope/bin/Debug/net6.0/Hope.dll
+/Users/noahsehman/Desktop/For-Now/Hope/bin/Debug/net6.0/Hope.pdb
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.csproj.AssemblyReference.cache
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.GeneratedMSBuildEditorConfig.editorconfig
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.AssemblyInfoInputs.cache
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.AssemblyInfo.cs
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.csproj.CoreCompileInputs.cache
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.dll
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/refint/Hope.dll
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.pdb
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/Hope.genruntimeconfig.cache
+/Users/noahsehman/Desktop/For-Now/Hope/obj/Debug/net6.0/ref/Hope.dll
