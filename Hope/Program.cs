@@ -1,85 +1,76 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-using System;
-
-namespace Nature {
-    public class Node<T>
-    {
-        public T Value { get; set; }
-        public Node<T>? Left { get; set; }
-        public Node<T>? Right { get; set; }
-
-        public Node(T value)
-        {
-            Value = value;
-            Left = null;
-            Right = null;
-        }
-    }
+﻿using System;
+using System.Collections.Generic;
 
 
-    public class BinaryTree<T>
-    {
-        public Node<T>? Root { get; private set; }
+public class TreeNode<T> {
+    public T Value { get; set; }
+    public TreeNode<T>? Left { get; set; }
+    public TreeNode<T>? Right { get; set; }
+    public TreeNode<T>? Parent { get; set; }
 
-        public BinaryTree()
-        {
-            Root = null;
-        }
-
-        public void Insert(T value)
-        {
-            Root = InsertRec(Root, value);
-        }
-
-        private Node<T> InsertRec(Node<T> node, T value)
-        {
-            if (node == null)
-            {
-                node = new Node<T>(value);
-            }
-            else if (Comparer<T>.Default.Compare(value, node.Value) < 0)
-            {
-                node.Left = InsertRec(node.Left, value);
-            }
-            else if (Comparer<T>.Default.Compare(value, node.Value) > 0)
-            {
-                node.Right = InsertRec(node.Right, value);
-            }
-
-            return node;
-        }
-
-        public void TraverseInOrder(Action<T> action)
-        {
-            TraverseInOrderRec(Root, action);
-        }
-
-        private void TraverseInOrderRec(Node<T> node, Action<T> action)
-        {
-            if (node != null)
-            {
-                TraverseInOrderRec(node.Left, action);
-                action(node.Value);
-                TraverseInOrderRec(node.Right, action);
-            }
-        }
-    }
-
-    class Program
-    {
-        static void Main()
-        {
-            BinaryTree<int> tree = new BinaryTree<int>();
-
-            tree.Insert(5);
-            tree.Insert(3);
-            tree.Insert(7);
-            tree.Insert(1);
-            tree.Insert(9);
-
-            Console.WriteLine("In-order traversal:");
-            tree.TraverseInOrder(value => Console.WriteLine(value));
-        }
+    public TreeNode(T value) {
+        Value = value;
+        Left = null;
+        Right = null;
+        Parent = null;
     }
 }
+
+public class BinaryTree<T> {
+    public TreeNode<T>? Root { get; private set; }
+
+    public BinaryTree() {
+        Root = null;
+    }
+
+    public void Insert(T value) {
+        Root = InsertRec(Root, value);
+    }
+
+    private TreeNode<T> InsertRec(TreeNode<T> node, T value) {
+        if (node == null) {
+            node = new TreeNode<T>(value);
+        }
+        else if (Comparer<T>.Default.Compare(value, node.Value) < 0) {
+            node.Left = InsertRec(node.Left, value);
+        }
+        else if (Comparer<T>.Default.Compare(value, node.Value) > 0) {
+            node.Right = InsertRec(node.Right, value);
+        }
+
+        return node;
+    }
+
+    public void Print() {
+        PrintTree(Root, 0);
+    }
+
+    private void PrintTree(TreeNode<T> node, int depth) {
+        if (node == null)
+            return;
+
+        PrintTree(node.Right, depth + 1);
+
+        Console.WriteLine($"{new string(' ', depth * 3)}{node.Value}");
+
+        PrintTree(node.Left, depth + 1);
+    }
+}
+
+class Program {
+    static void Main() {
+        BinaryTree<int> tree = new BinaryTree<int>();
+
+        tree.Insert(5);
+        tree.Insert(3);
+        tree.Insert(7);
+        tree.Insert(1);
+        tree.Insert(9);
+        tree.Insert(6);
+        tree.Insert(10);
+
+        Console.WriteLine("Binary Tree:");
+        tree.Print();
+    }
+}
+
