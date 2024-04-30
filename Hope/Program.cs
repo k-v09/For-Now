@@ -77,17 +77,24 @@ f(x) = sum(1->x): x
 */
 
 class Program {
-    static void Inserts (BinaryTree<string> bt, int depth) {
-    }
-
     static void Main() {
-        BinaryTree<string> tree = new();
+        BinaryTree<int> tree = new BinaryTree<int>();
 
-//        tree.Insert(5);
-        Console.Write("How many layers: ");
-        int depth = Convert.ToInt32(Console.ReadLine());
-        Inserts(tree, depth);
-
+        tree.Insert(5);
+        tree.Insert(3);
+        tree.Insert(7);
+        tree.Insert(1);
+        tree.Insert(9);
+        tree.Insert(6);
+        tree.Insert(10);
+        tree.Insert(5);
+        tree.Insert(3);
+        tree.Insert(7);
+        tree.Insert(1);
+        tree.Insert(9);
+        tree.Insert(6);
+        tree.Insert(10);
+        
         Console.WriteLine("Binary Tree:");
         tree.Print();
     }
