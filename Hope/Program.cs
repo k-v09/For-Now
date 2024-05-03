@@ -1,7 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-
+public class stupid{
+    public static string GetInp(bool position, string intern) {
+        string value;
+        if (position) {
+            value = "first";
+        }
+        else {
+            value = "second";
+        }
+        Console.WriteLine($"What is the {value} component of {intern}?");
+        string? v = Console.ReadLine();
+        while (v == null) {
+            Console.WriteLine("Invalid Input\nCannot be type null");
+            v = Console.ReadLine();
+        }
+        return v;
+    }
+}
 public class TreeNode {
     public string Value {get; set;}
     public TreeNode? Left {get; set;}
@@ -31,20 +48,10 @@ public class BinaryTree {
 
     private TreeNode InsertRoot(string value) {
         TreeNode r = new TreeNode(value);
-        Console.WriteLine($"What is the first component of {value}?");
-        string? v = Console.ReadLine();
-        while (v == null) {
-            Console.WriteLine("Invalid Input\nCannot be type null");
-            v = Console.ReadLine();
-        }
-        r.Left = InsertRecL(r.Left, v);
-        Console.WriteLine($"What is the first component of {value}?");
-        string? b = Console.ReadLine();
-        while (b == null) {
-            Console.WriteLine("Invalid Input\nCannot be type null");
-            b = Console.ReadLine();
-        }
-        r.Right = InsertRecR(r.Right, b);
+        string val = stupid.GetInp(true, value);
+        r.Left = InsertRecL(r.Left, val);
+        string sval = stupid.GetInp(false, value);
+        r.Right = InsertRecR(r.Right, sval);
         return r;
     }
 
@@ -58,19 +65,9 @@ public class BinaryTree {
             }
         }
         if (valIn) {
-            Console.WriteLine($"What is the first component of {value}?");
-            string? t = Console.ReadLine();
-            while (t == null) {
-                Console.WriteLine("Invalid Input\nCannot be type null");
-                t = Console.ReadLine();
-            }
+            string t = stupid.GetInp(true, value);
             InsertRecL(node.Left, t);
-            Console.WriteLine($"What is the second component of {value}?");
-            string? y = Console.ReadLine();
-            while (y == null) {
-                Console.WriteLine("Invalid Input\nCannot be type null");
-                y = Console.ReadLine();
-            }
+            string y = stupid.GetInp(false, value);
             InsertRecR(node.Right, y);
         }
 
@@ -86,19 +83,9 @@ public class BinaryTree {
             }
         }
         if (valIn) {
-            Console.WriteLine($"What is the second component of {value}?");
-            string? t = Console.ReadLine();
-            while (t == null) {
-                Console.WriteLine("Invalid Input\nCannot be type null");
-                t = Console.ReadLine();
-            }
+            string t = stupid.GetInp(true, value);
             InsertRecL(node.Left, t);
-            Console.WriteLine($"What is the second component of {value}?");
-            string? y = Console.ReadLine();
-            while (y == null) {
-                Console.WriteLine("Invalid Input\nCannot be type null");
-                y = Console.ReadLine();
-            }
+            string y = stupid.GetInp(false, value);
             InsertRecR(node.Right, y);
         }
 
