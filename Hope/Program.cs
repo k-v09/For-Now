@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 
 public class TreeNode {
-    public string Value { get; set; }
-    public TreeNode? Left { get; set; }
-    public TreeNode? Right { get; set; }
-    public TreeNode? Parent { get; set; }
+    public string Value {get; set;}
+    public TreeNode? Left {get; set;}
+    public TreeNode? Right {get; set;}
+    public TreeNode? Parent {get; set;}
 
     public TreeNode(string value) {
         Value = value;
@@ -19,7 +19,7 @@ public class TreeNode {
 public class BinaryTree {
 
     private string[] basics = {"fire", "water", "earth", "wind"};
-    public TreeNode? Root {get; private set; }
+    public TreeNode? Root {get; private set;}
 
     public BinaryTree() {
         Root = null;
@@ -38,20 +38,18 @@ public class BinaryTree {
             v = Console.ReadLine();
         }
         r.Left = InsertRecL(r.Left, v);
+        Console.WriteLine($"What is the first component of {value}?");
+        string? b = Console.ReadLine();
+        while (b == null) {
+            Console.WriteLine("Invalid Input\nCannot be type null");
+            b = Console.ReadLine();
+        }
+        r.Right = InsertRecR(r.Right, b);
         return r;
     }
 
 
     private TreeNode InsertRecL(TreeNode node, string value) {
-        /*if (node == null) {
-            node = new TreeNode(value);
-        }
-        else if (Comparer.Default.Compare(value, node.Value) < 0) {
-            node.Left = InsertRec(node.Left, value);
-        }
-        else if (Comparer.Default.Compare(value, node.Value) > 0) {
-            node.Right = InsertRec(node.Right, value);
-        }*/
         node ??= new TreeNode(value);
         bool valIn = false;
         foreach (string el in basics) {
@@ -67,6 +65,41 @@ public class BinaryTree {
                 t = Console.ReadLine();
             }
             InsertRecL(node.Left, t);
+            Console.WriteLine($"What is the second component of {value}?");
+            string? y = Console.ReadLine();
+            while (y == null) {
+                Console.WriteLine("Invalid Input\nCannot be type null");
+                y = Console.ReadLine();
+            }
+            InsertRecR(node.Right, y);
+        }
+
+        return node;
+    }
+
+    private TreeNode InsertRecR(TreeNode node, string value) {
+        node ??= new TreeNode(value);
+        bool valIn = false;
+        foreach (string el in basics) {
+            if (el == value) {
+                valIn = true;
+            }
+        }
+        if (valIn) {
+            Console.WriteLine($"What is the second component of {value}?");
+            string? t = Console.ReadLine();
+            while (t == null) {
+                Console.WriteLine("Invalid Input\nCannot be type null");
+                t = Console.ReadLine();
+            }
+            InsertRecL(node.Left, t);
+            Console.WriteLine($"What is the second component of {value}?");
+            string? y = Console.ReadLine();
+            while (y == null) {
+                Console.WriteLine("Invalid Input\nCannot be type null");
+                y = Console.ReadLine();
+            }
+            InsertRecR(node.Right, y);
         }
 
         return node;
